@@ -1,6 +1,5 @@
-========== TASK 1 : Implementing PCA on data ==========
-========== TASK 2 ==========
-===== TASK 2 Q1 : Apply linear SVM and do 10-fold cross validation =====
+========== Implementing PCA on data ==========
+===== Apply linear SVM and do 10-fold cross validation =====
 
 >>>>>>>>Training SVM on 10% dimensions PCA...
 
@@ -1411,8 +1410,8 @@ Test F1-Score:
 	truck: 0.36170212765957455
 Test Accuracy:
 	29.4%
-===== TASK 2 Q2 : Plot per-class f1 and accuracy =====
-===== TASK 2 Q3 : Apply different kernel SVM =====
+Ploting per-class f1 and accuracy...
+===== Apply different kernel SVM =====
 >>>>>>>>Training SVM on RBF Kernel
 
 ==================== Fold 1 ====================
@@ -1975,4 +1974,4 @@ Test F1-Score:
 	truck: 0.4320987654320988
 Test Accuracy:
 	31.1%
-===== TASK 2 Q4 : Plot Results of Task2 Q3 =====
+===== Plotting Results... =====

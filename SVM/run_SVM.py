@@ -30,7 +30,7 @@ if __name__ == '__main__':
     X_svm, y_svm = X[:num_data], y[:num_data] # select only 5000 data
     X_train, X_test, y_train, y_test = train_test_split(X_svm, y_svm, test_size=0.2, random_state=SEED, stratify=y_svm) # split train/test set
 
-    print('='*10,'TASK 1 : Implementing PCA on data','='*10)
+    print('='*10,'Implementing PCA on data','='*10)
 
     # PCA using sklearn's Pipeline
     # by applying standard scaler (shift data to zero mean, unit variance) before PCA
@@ -40,8 +40,7 @@ if __name__ == '__main__':
     pca_070 = Pipeline([('scaling', StandardScaler()), ('pca', PCA(n_components=int(0.7*X_train.shape[1])))]).fit(X_train) # 70% of components
     scaler = StandardScaler().fit(X_train) # scaler for 100% components
 
-    print('='*10,'TASK 2','='*10)
-    print('='*5,'TASK 2 Q1 : Apply linear SVM and do 10-fold cross validation','='*5)
+    print('='*5,'Apply linear SVM and do 10-fold cross validation','='*5)
     
     print('\n>>>>>>>>Training SVM on 10% dimensions PCA...\n')
     f1_010_val, acc_010_val, SVC_010 = kfold_SVM(X_train, y_train, transform=pca_010, seed=SEED) # applying k-fold to 10% components
@@ -72,7 +71,7 @@ if __name__ == '__main__':
     print('>'*10,'100% PCA dimensions')
     f1_linear_test, acc_linear_test = eval_svm(X_test, y_test, SVC_linear)
 
-    print('='*5,'TASK 2 Q2 : Plot per-class f1 and accuracy','='*5)
+    print('Plotting per-class f1 and accuracy...')
 
     # plot per-class f1-scores
     f1_PCA = np.array([f1_010_test, f1_030_test, f1_050_test, f1_070_test, f1_linear_test])
@@ -85,7 +84,7 @@ if __name__ == '__main__':
     title = 'Accuracy of different PCA components on linear SVM'
     plot_acc(acc_PCA, xticks, title, fig_path+'acc_pca.png')
 
-    print('='*5,'TASK 2 Q3 : Apply different kernel SVM','='*5)
+    print('='*5,'Apply different kernel SVM','='*5)
 
     # run K-fold on different SVM kernels
     print('>>>>>>>>Training SVM on RBF Kernel\n')
@@ -99,7 +98,7 @@ if __name__ == '__main__':
     print('>'*10,'Polynomial Kernel')
     f1_poly_test, acc_poly_test = eval_svm(X_test, y_test, SVC_poly)
 
-    print('='*5,'TASK 2 Q4 : Plot Results of Task2 Q3','='*5)
+    print('Ploting Results...')
 
     # plot per-class f1 scores
     f1_kernels = np.array([f1_linear_test, f1_rbf_test, f1_poly_test])
